@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  dev:
+    container_name: angular-io-example_dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: development
+      PORT: 4200
+    volumes:
+      - .:/home/angular/app
+      - /home/angular/app/node_modules
+    ports:
+      - 4200:4200
+    restart: unless-stopped
+    # to get this work with https://github.com/jwilder/nginx-proxy
+    # related: https://github.com/jwilder/nginx-proxy/issues/305
+    network_mode: bridge
