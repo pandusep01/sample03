@@ -18,7 +18,7 @@ definitions:
           - pipe: SonarSource/sonarcloud-scan:0.1.1
             environment:
               SONAR_TOKEN: ${SONAR_TOKEN}
-              EXTRA_ARGS: '-Dsonar.sources=. -Dsonar.exclusions="node_modules/**" -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info -Dsonar.projectKey=sonarsource_sample-nodejs-project -Dsonar.organization=sonarsource-bitbucket'
+              EXTRA_ARGS: '-Dsonar.sources=src -Dsonar.tests=src -Dsonar.test.inclusions="**/testing/**,**/*.spec.ts" -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info -Dsonar.projectKey=sonarsource_sample-nodejs-project -Dsonar.organization=sonarsource-bitbucket'
 pipelines:
   default:
     - step: *build-test-sonarcloud
