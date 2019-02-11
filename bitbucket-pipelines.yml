@@ -14,8 +14,11 @@ definitions:
           - sonar
         script:
           - npm install
-          - npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-          
+          - npm run test -- --no-watch --no-progress --browsers=ChromeHeadless         
+          - pipe: SonarSource/sonarcloud-scan:0.1.0
+            environment:
+              SONAR_TOKEN: ${SONAR_TOKEN}
+              EXTRA_ARGS: '-Dsonar.sources=. -Dsonar.projectKey=sonarsource_sample-nodejs-project -Dsonar.organization=sonarsource-bitbucket'
 pipelines:
   default:
     - step: *build-test-sonarcloud
