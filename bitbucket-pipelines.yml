@@ -15,7 +15,7 @@ definitions:
         script:
           - npm install
           - npm run test -- --no-watch --no-progress --browsers=ChromeHeadless         
-          - pipe: SonarSource/sonarcloud-scan:0.1.0
+          - pipe: SonarSource/sonarcloud-scan:0.1.1
             environment:
               SONAR_TOKEN: ${SONAR_TOKEN}
               EXTRA_ARGS: '-Dsonar.sources=. -Dsonar.exclusions="node_modules/**" -Dsonar.projectKey=sonarsource_sample-nodejs-project -Dsonar.organization=sonarsource-bitbucket'
