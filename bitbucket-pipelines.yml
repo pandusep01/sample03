@@ -1,4 +1,4 @@
-image: simbo/node-chrome:latest
+image: feeni/node-chrome:latest
 
 clone:
   depth: full              # SonarCloud scanner needs the full history to assign issues properly
