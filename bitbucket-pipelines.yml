@@ -16,6 +16,7 @@ definitions:
           - npm install --quiet
           - npm run test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox  
           - npm install -g sonarqube-scanner
+          - sonar-scanner --help # Workaround for https://github.com/bellingard/sonar-scanner-npm/issues/46
           - sonar-scanner -Dsonar.sources=src -Dsonar.tests=src -Dsonar.test.inclusions="**/testing/**,**/*.spec.ts" -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info -Dsonar.projectKey=sonarsource_sample-nodejs-project -Dsonar.organization=sonarsource-bitbucket
 pipelines:
   default:
