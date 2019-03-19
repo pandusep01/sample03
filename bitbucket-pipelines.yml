@@ -15,8 +15,10 @@ definitions:
         script:
           - npm install --quiet
           - npm run test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox  
-          - npm install -g sonarqube-scanner
-          - sonar-scanner -Dsonar.sources=src -Dsonar.tests=src -Dsonar.test.inclusions="**/testing/**,**/*.spec.ts" -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info
+          - pipe: sonarsource/sonarcloud-scan:0.1.5
+            variables:
+              SONAR_TOKEN: ${SONAR_TOKEN}
+              EXTRA_ARGS: '-Dsonar.sources=src -Dsonar.tests=src -Dsonar.test.inclusions="**/testing/**,**/*.spec.ts" -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info'
 pipelines:
   default:
     - step: *build-test-sonarcloud
