@@ -7,7 +7,7 @@ import { HeroService } from "../model/hero.service";
 export class HeroDetailService {
   constructor(private heroService: HeroService) {}
 
-  // Returns a clone which caller may modify safely
+  // Returns a clone which caller may then modify safely
   getHero(id: number | string): Promise<Hero> {
     if (typeof id === "string") {
       id = parseInt(id as string, 10);
