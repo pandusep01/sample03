@@ -18,6 +18,8 @@ definitions:
           - pipe: sonarsource/sonarcloud-scan:1.0.1
             variables:
               EXTRA_ARGS: '-Dsonar.sources=src -Dsonar.tests=src -Dsonar.test.inclusions="**/testing/**,**/*.spec.ts" -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info'
+          - pipe: sonarsource/sonarcloud-quality-gate:0.1.2
+
 pipelines:
   default:
     - step: *build-test-sonarcloud
