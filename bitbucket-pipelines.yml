@@ -15,7 +15,7 @@ definitions:
         script:
           - npm install --quiet
           - npm run test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox  
-          - pipe: sonarsource/sonarcloud-scan:0.1.5
+          - pipe: sonarsource/sonarcloud-scan:1.2.0
             variables:
               SONAR_TOKEN: ${SONAR_TOKEN}
               EXTRA_ARGS: '-Dsonar.sources=src -Dsonar.tests=src -Dsonar.test.inclusions="**/testing/**,**/*.spec.ts" -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info'
