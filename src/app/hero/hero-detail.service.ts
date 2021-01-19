@@ -5,7 +5,7 @@ import { HeroService } from "../model/hero.service";
 
 @Injectable()
 export class HeroDetailService {
-  constructor(private heroService: HeroService) {  }
+  constructor(private heroService: HeroService) { }
 
   // Returns a clone which caller may then modify safely
   getHero(id: number | string): Promise<Hero> {
