@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install NPM dependencies 
+        run: ${{ env.DEPENDENCY_COMMANDS }}
+
+      - name: Run tests
+        run: ${{ env.RUN_TEST_COMMANDS }}
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: ${{ secrets.DESTINATION_FOLDER_NAME}}
+          path: ${{ secrets.ARTIFACT_SOURCE_PATH}}
+
