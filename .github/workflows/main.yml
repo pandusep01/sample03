@@ -16,10 +16,10 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install NPM dependencies 
-        run: ${{ env.DEPENDENCY_COMMANDS }}
+        run: npm install
 
       - name: Run tests
-        run: ${{ env.RUN_TEST_COMMANDS }}
+        run: npm run
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
