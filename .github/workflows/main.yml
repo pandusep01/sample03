@@ -2,6 +2,8 @@ name: CI
 
 on:
   push
+env: 
+ DEPENDENCY_COMMANDS: npm install
 
 jobs:
   build:
@@ -16,11 +18,10 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install NPM dependencies 
-        run: npm install
+        run: ${{ env.DEPENDENCY_COMMANDS}}
 
       - name: Run tests
-        run: |
-         ${{secrets.RUN_TEST_COMMANDS}}
+        run: ${{secrets.RUN_TEST_COMMANDS}}
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
