@@ -18,8 +18,9 @@ jobs:
       - name: Install NPM dependencies 
         run: ${{ env.DEPENDENCY_COMMANDS}}
 
-      - name: Run tests
-        run: npm run
+      - name: Run test
+         env:RUN_TEST_COMMANDS:${{secrets.RUN_TEST_COMMANDS}}
+        run: $RUN_TEST_COMMANDS
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
