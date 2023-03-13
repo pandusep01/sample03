@@ -21,7 +21,7 @@ jobs:
         run: ${{ env.DEPENDENCY_COMMANDS}}
 
       - name: Run tests
-        run: ${{secrets.RUN_TEST_COMMANDS}}
+        run: npm run
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
