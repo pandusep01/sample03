@@ -3,8 +3,7 @@ name: CI
 
 on:
   push
-env:
-  DEPENDENCY_COMMANDS: npm install
+
 jobs:
   build:
     runs-on: ubuntu-latest
