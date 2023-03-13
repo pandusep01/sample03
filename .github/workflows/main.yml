@@ -16,7 +16,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install NPM dependencies 
-        run: npm install
+        run: ${{env.DEPENDENCY_COMMANDS}}
 
       - name: Run tests
         run: npm run
